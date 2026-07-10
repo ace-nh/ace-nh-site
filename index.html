@@ -371,9 +371,9 @@
     .ticket-row {
       display: flex; align-items: center; justify-content: space-between;
       padding: 12px 16px; background: var(--light); border-radius: 10px;
-      border: 1.5px solid transparent; cursor: pointer; transition: .15s;
+      border: 1.5px solid transparent; transition: .15s;
     }
-    .ticket-row:hover, .ticket-row.selected {
+    .ticket-row:hover {
       border-color: var(--magenta); background: rgba(230,0,126,.05);
     }
     .ticket-row-info h5 {
@@ -381,20 +381,6 @@
       font-size: 14px; font-weight: 700; color: var(--navy);
     }
     .ticket-row-info span { font-size: 12.5px; color: var(--gray); }
-    .qty-stepper {
-      display: inline-flex; align-items: center; gap: 10px; margin-top: 8px;
-    }
-    .qty-stepper button {
-      width: 26px; height: 26px; border-radius: 6px; border: 1.5px solid var(--border);
-      background: #fff; color: var(--navy); font-size: 16px; font-weight: 700;
-      line-height: 1; cursor: pointer; transition: .15s;
-    }
-    .qty-stepper button:hover { border-color: var(--cyan); color: var(--cyan); }
-    .qty-stepper span {
-      min-width: 20px; text-align: center; font-family: 'Oswald', sans-serif;
-      font-weight: 700; font-size: 15px; color: var(--navy);
-    }
-    .qty-stepper em { font-style: normal; font-size: 12px; color: var(--gray); }
     .ticket-row-price { font-family: 'Oswald', sans-serif; font-weight: 800; color: var(--orange); font-size: 18px; }
 
     /* sidebar */
@@ -438,20 +424,6 @@
     }
     .form-group select option { background: var(--white); color: var(--dark); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .order-summary {
-      background: var(--light); border-radius: 6px;
-      padding: 12px; margin: 4px 0 12px;
-    }
-    .order-line {
-      display: flex; justify-content: space-between;
-      font-size: 13px; color: var(--gray);
-      margin-bottom: 5px;
-    }
-    .order-line.total {
-      border-top: 1px solid var(--border);
-      padding-top: 10px; margin-top: 4px;
-      color: var(--navy); font-weight: 700; font-size: 15px;
-    }
     .pay-btn {
       width: 100%; padding: 12px;
       background: var(--orange); color: var(--white);
@@ -1106,48 +1078,42 @@
             </div>
             <p>Join us for our annual Fundraising Breakfast — a morning of networking with NH's leading AEC professionals, student presentations, and impactful stories from the program. Learn how your support changes lives and opens careers.</p>
             <div class="ticket-options">
-              <div class="ticket-row selected" data-price="75" onclick="selectTicket(this, 'Individual Ticket', 75)">
+              <div class="ticket-row">
                 <div class="ticket-row-info">
                   <h5>Individual Ticket</h5>
                   <span>1 seat · General admission</span>
-                  <div class="qty-stepper" onclick="event.stopPropagation()">
-                    <button type="button" aria-label="Fewer tickets" onclick="changeQty(-1)">−</button>
-                    <span id="qty-count">1</span>
-                    <button type="button" aria-label="More tickets" onclick="changeQty(1)">+</button>
-                    <em>tickets</em>
-                  </div>
                 </div>
-                <div class="ticket-row-price" id="row-price-75">$75</div>
+                <div class="ticket-row-price">$75</div>
               </div>
-              <div class="ticket-row" data-price="500" onclick="selectTicket(this, 'Bronze Sponsor', 500)">
+              <div class="ticket-row">
                 <div class="ticket-row-info">
                   <h5>Bronze Sponsor</h5>
                   <span>1 ticket + Event signage recognition</span>
                 </div>
                 <div class="ticket-row-price">$500</div>
               </div>
-              <div class="ticket-row" data-price="1000" onclick="selectTicket(this, 'Silver Sponsor', 1000)">
+              <div class="ticket-row">
                 <div class="ticket-row-info">
                   <h5>Silver Sponsor</h5>
                   <span>2 tickets + Signage + Social media shout-out + Year-long web recognition</span>
                 </div>
                 <div class="ticket-row-price">$1,000</div>
               </div>
-              <div class="ticket-row" data-price="2500" onclick="selectTicket(this, 'Gold Sponsor', 2500)">
+              <div class="ticket-row">
                 <div class="ticket-row-info">
                   <h5>Gold Sponsor</h5>
                   <span>5 tickets + Logo tied to 1 scholarship winner (may be shared) + Signage &amp; shout-out at Breakfast + Social media shout-out + Year-long web recognition</span>
                 </div>
                 <div class="ticket-row-price">$2,500</div>
               </div>
-              <div class="ticket-row" data-price="5000" onclick="selectTicket(this, 'Platinum Sponsor', 5000)">
+              <div class="ticket-row">
                 <div class="ticket-row-info">
                   <h5>Platinum Sponsor</h5>
                   <span>Table of 10 + Logo tied to 1 scholarship winner + Signage &amp; shout-out at Breakfast + Social media shout-out + Year-long web recognition</span>
                 </div>
                 <div class="ticket-row-price">$5,000</div>
               </div>
-              <div class="ticket-row" data-price="10000" onclick="selectTicket(this, 'Partnership Sponsor', 10000)">
+              <div class="ticket-row">
                 <div class="ticket-row-info">
                   <h5>Partnership Sponsor</h5>
                   <span>2 tables of 10 + Premier year-round recognition as Partnership Sponsor + Logo tied to multiple scholarships + Top billing at all major events + Student mentorship/site visit opportunities</span>
@@ -1192,33 +1158,10 @@
           <p>Secure checkout powered by BirdEase</p>
         </div>
         <div class="qp-body">
-        <div class="form-group">
-          <label>Event</label>
-          <select id="sidebar-event-select">
-            <option>Fundraising Breakfast — Sep 30, 2026</option>
-            <option>Student Presentation Night — Mar 2027 (TBD)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Ticket / Sponsorship Level</label>
-          <select id="sidebar-ticket-select" onchange="updateSidebarTotal(this.value)">
-            <option value="75">Individual Ticket — $75</option>
-            <option value="500">Bronze Sponsor (1 ticket) — $500</option>
-            <option value="1000">Silver Sponsor (2 tickets) — $1,000</option>
-            <option value="2500">Gold Sponsor (5 tickets) — $2,500</option>
-            <option value="5000">Platinum Sponsor (Table of 10) — $5,000</option>
-            <option value="10000">Partnership Sponsor (2 Tables of 10) — $10,000</option>
-          </select>
-        </div>
-        <div class="form-group" id="qp-qty-group">
-          <label>Number of Tickets</label>
-          <input type="number" id="qp-qty" min="1" max="99" value="1" onchange="setQty(this.value)" oninput="setQty(this.value)" />
-        </div>
-        <div class="order-summary">
-          <div class="order-line"><span id="sidebar-ticket-label">Individual Ticket</span><span id="sidebar-subtotal">$75.00</span></div>
-          <div class="order-line"><span>Processing fee (3%)</span><span id="fee-amount">$2.25</span></div>
-          <div class="order-line total"><span>Total</span><span id="total-amount">$77.25</span></div>
-        </div>
+        <p style="font-size:13.5px;color:var(--gray);line-height:1.55;margin-bottom:14px;">
+          <strong style="color:var(--navy);">Fundraising Breakfast — Sep 30, 2026</strong><br/>
+          Choose your tickets or sponsorship level, set quantity, and pay — all in the secure BirdEase checkout. A 3% processing fee applies.
+        </p>
         <button class="pay-btn" onclick="startCheckout()">
           <svg class="isvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg> &nbsp;Continue to Secure Checkout
         </button>
@@ -1777,9 +1720,6 @@
     openBirdease();
   }
 
-  var selectedTicketPrice = 75;
-  var selectedTicketName = 'Individual Ticket';
-
   function toggleMenu(el) {
     var ul = document.querySelector('nav ul');
     ul.classList.toggle('mobile-open');
@@ -1790,73 +1730,6 @@
       document.querySelector('nav ul').classList.remove('mobile-open');
     });
   });
-
-  var TICKET_LABELS = {
-    75: 'Individual Ticket',
-    500: 'Bronze Sponsor — 1 ticket',
-    1000: 'Silver Sponsor — 2 tickets',
-    2500: 'Gold Sponsor — 5 tickets',
-    5000: 'Platinum Sponsor — Table of 10',
-    10000: 'Partnership Sponsor — 2 Tables of 10'
-  };
-
-  function money(n) {
-    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
-
-  // Quantity only applies to Individual Tickets ($75); sponsorships are one per order.
-  var ticketQty = 1;
-
-  function changeQty(delta) {
-    setQty(ticketQty + delta);
-    syncSidebar(75); // stepping quantity implies the Individual Ticket row
-  }
-
-  function setQty(n) {
-    ticketQty = Math.max(1, Math.min(99, parseInt(n, 10) || 1));
-    var count = document.getElementById('qty-count');
-    var input = document.getElementById('qp-qty');
-    if (count) count.textContent = ticketQty;
-    if (input && parseInt(input.value, 10) !== ticketQty) input.value = ticketQty;
-    var rowPrice = document.getElementById('row-price-75');
-    if (rowPrice) rowPrice.textContent = ticketQty > 1 ? '$' + (75 * ticketQty).toLocaleString('en-US') : '$75';
-    syncSidebar(selectedTicketPrice);
-  }
-
-  // Single source of truth for the Quick Purchase summary.
-  function syncSidebar(price) {
-    price = parseFloat(price) || 0;
-    var isIndividual = price === 75;
-    var qty = isIndividual ? ticketQty : 1;
-    var subtotal = price * qty;
-    var fee = subtotal * 0.03;
-    var total = subtotal * 1.03;
-    var label = TICKET_LABELS[price] || 'Ticket';
-    if (isIndividual && qty > 1) label += ' × ' + qty;
-    document.getElementById('sidebar-ticket-label').textContent = label;
-    document.getElementById('sidebar-subtotal').textContent = money(subtotal);
-    document.getElementById('fee-amount').textContent = money(fee);
-    document.getElementById('total-amount').textContent = money(total);
-    // quantity only makes sense for Individual Tickets
-    document.getElementById('qp-qty-group').style.display = isIndividual ? '' : 'none';
-    // keep the dropdown in step
-    var sel = document.getElementById('sidebar-ticket-select');
-    if (sel && parseFloat(sel.value) !== price) sel.value = String(price);
-    // keep the left-side ticket rows in step
-    document.querySelectorAll('.ticket-row').forEach(function (r) {
-      r.classList.toggle('selected', parseFloat(r.getAttribute('data-price')) === price);
-    });
-    selectedTicketPrice = price;
-    selectedTicketName = TICKET_LABELS[price] || 'Ticket';
-  }
-
-  function selectTicket(el, name, price) {
-    syncSidebar(price);
-  }
-
-  function updateSidebarTotal(val) {
-    syncSidebar(val);
-  }
 
   // ── Notify Me modal (Student Presentation Night) ──
   function openNotifyModal() {
