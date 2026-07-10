@@ -1705,7 +1705,10 @@
   // ─────────────────────────────────────────────────────────────
   var CHECKOUT = {
     mode: 'embed',
-    birdeaseUrl: 'https://birdease.com/36393'
+    // /register deep-links straight to the ticket cards (BirdEase page
+    // slug from /api/event/36393/config/pages), skipping the event
+    // overview and its extra "Register" click.
+    birdeaseUrl: 'https://birdease.com/36393/register'
   };
 
   // ─────────────────────────────────────────────────────────────
