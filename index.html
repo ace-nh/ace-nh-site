@@ -381,6 +381,20 @@
       font-size: 14px; font-weight: 700; color: var(--navy);
     }
     .ticket-row-info span { font-size: 12.5px; color: var(--gray); }
+    .qty-stepper {
+      display: inline-flex; align-items: center; gap: 10px; margin-top: 8px;
+    }
+    .qty-stepper button {
+      width: 26px; height: 26px; border-radius: 6px; border: 1.5px solid var(--border);
+      background: #fff; color: var(--navy); font-size: 16px; font-weight: 700;
+      line-height: 1; cursor: pointer; transition: .15s;
+    }
+    .qty-stepper button:hover { border-color: var(--cyan); color: var(--cyan); }
+    .qty-stepper span {
+      min-width: 20px; text-align: center; font-family: 'Oswald', sans-serif;
+      font-weight: 700; font-size: 15px; color: var(--navy);
+    }
+    .qty-stepper em { font-style: normal; font-size: 12px; color: var(--gray); }
     .ticket-row-price { font-family: 'Oswald', sans-serif; font-weight: 800; color: var(--orange); font-size: 18px; }
 
     /* sidebar */
@@ -1096,41 +1110,47 @@
                 <div class="ticket-row-info">
                   <h5>Individual Ticket</h5>
                   <span>1 seat · General admission</span>
+                  <div class="qty-stepper" onclick="event.stopPropagation()">
+                    <button type="button" aria-label="Fewer tickets" onclick="changeQty(-1)">−</button>
+                    <span id="qty-count">1</span>
+                    <button type="button" aria-label="More tickets" onclick="changeQty(1)">+</button>
+                    <em>tickets</em>
+                  </div>
                 </div>
-                <div class="ticket-row-price">$75</div>
+                <div class="ticket-row-price" id="row-price-75">$75</div>
               </div>
-              <div class="ticket-row" data-price="500" onclick="selectTicket(this, 'Bronze Sponsor — 1 Ticket', 500)">
+              <div class="ticket-row" data-price="500" onclick="selectTicket(this, 'Bronze Sponsor', 500)">
                 <div class="ticket-row-info">
-                  <h5>Bronze Sponsor — 1 Ticket</h5>
-                  <span>Includes event signage recognition</span>
+                  <h5>Bronze Sponsor</h5>
+                  <span>1 ticket + Event signage recognition</span>
                 </div>
                 <div class="ticket-row-price">$500</div>
               </div>
-              <div class="ticket-row" data-price="1000" onclick="selectTicket(this, 'Silver Sponsor — 2 Tickets', 1000)">
+              <div class="ticket-row" data-price="1000" onclick="selectTicket(this, 'Silver Sponsor', 1000)">
                 <div class="ticket-row-info">
-                  <h5>Silver Sponsor — 2 Tickets</h5>
-                  <span>Signage + Social media shout-out + Year-long web recognition</span>
+                  <h5>Silver Sponsor</h5>
+                  <span>2 tickets + Signage + Social media shout-out + Year-long web recognition</span>
                 </div>
                 <div class="ticket-row-price">$1,000</div>
               </div>
-              <div class="ticket-row" data-price="2500" onclick="selectTicket(this, 'Gold Sponsor — 5 Tickets', 2500)">
+              <div class="ticket-row" data-price="2500" onclick="selectTicket(this, 'Gold Sponsor', 2500)">
                 <div class="ticket-row-info">
-                  <h5>Gold Sponsor — 5 Tickets</h5>
-                  <span>Logo tied to 1 scholarship winner (may be shared) + Signage &amp; shout-out at Breakfast + Social media shout-out + Year-long web recognition</span>
+                  <h5>Gold Sponsor</h5>
+                  <span>5 tickets + Logo tied to 1 scholarship winner (may be shared) + Signage &amp; shout-out at Breakfast + Social media shout-out + Year-long web recognition</span>
                 </div>
                 <div class="ticket-row-price">$2,500</div>
               </div>
-              <div class="ticket-row" data-price="5000" onclick="selectTicket(this, 'Platinum Sponsor — Table of 10', 5000)">
+              <div class="ticket-row" data-price="5000" onclick="selectTicket(this, 'Platinum Sponsor', 5000)">
                 <div class="ticket-row-info">
-                  <h5>Platinum Sponsor — Table of 10</h5>
-                  <span>Logo tied to 1 scholarship winner + Signage &amp; shout-out at Breakfast + Social media shout-out + Year-long web recognition</span>
+                  <h5>Platinum Sponsor</h5>
+                  <span>Table of 10 + Logo tied to 1 scholarship winner + Signage &amp; shout-out at Breakfast + Social media shout-out + Year-long web recognition</span>
                 </div>
                 <div class="ticket-row-price">$5,000</div>
               </div>
-              <div class="ticket-row" data-price="10000" onclick="selectTicket(this, 'Partnership Sponsor — 2 Tables of 10', 10000)">
+              <div class="ticket-row" data-price="10000" onclick="selectTicket(this, 'Partnership Sponsor', 10000)">
                 <div class="ticket-row-info">
-                  <h5>Partnership Sponsor — 2 Tables of 10</h5>
-                  <span>Premier year-round recognition as Partnership Sponsor + Logo tied to multiple scholarships + Top billing at all major events + Student mentorship/site visit opportunities</span>
+                  <h5>Partnership Sponsor</h5>
+                  <span>2 tables of 10 + Premier year-round recognition as Partnership Sponsor + Logo tied to multiple scholarships + Top billing at all major events + Student mentorship/site visit opportunities</span>
                 </div>
                 <div class="ticket-row-price">$10,000</div>
               </div>
@@ -1190,19 +1210,9 @@
             <option value="10000">Partnership Sponsor (2 Tables of 10) — $10,000</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" id="qp-name" placeholder="Your name or company name" />
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="qp-email" placeholder="you@company.com" />
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" id="qp-phone" placeholder="(603) 000-0000" />
-          </div>
+        <div class="form-group" id="qp-qty-group">
+          <label>Number of Tickets</label>
+          <input type="number" id="qp-qty" min="1" max="99" value="1" onchange="setQty(this.value)" oninput="setQty(this.value)" />
         </div>
         <div class="order-summary">
           <div class="order-line"><span id="sidebar-ticket-label">Individual Ticket</span><span id="sidebar-subtotal">$75.00</span></div>
@@ -1720,55 +1730,12 @@
   }
   function beResolveUrl() { return (CHECKOUT.birdeaseUrl || '').trim() || beStoredUrl(); }
 
-  // Read what the visitor typed into the Quick Purchase box so BirdEase
-  // can prefill its registration form. We split the full name into first/last
-  // and send several common field aliases so whichever names your BirdEase
-  // event expects get populated.
-  function collectPrefill(level) {
-    var nameEl  = document.getElementById('qp-name');
-    var emailEl = document.getElementById('qp-email');
-    var phoneEl = document.getElementById('qp-phone');
-    var selEl   = document.getElementById('sidebar-ticket-select');
-    var evtEl   = document.getElementById('sidebar-event-select');
-
-    var full = nameEl ? nameEl.value.trim() : '';
-    var parts = full.split(/\s+/).filter(Boolean);
-    var first = parts.length ? parts[0] : '';
-    var last  = parts.length > 1 ? parts.slice(1).join(' ') : '';
-    var email = emailEl ? emailEl.value.trim() : '';
-    var phone = phoneEl ? phoneEl.value.trim() : '';
-    var event = evtEl ? evtEl.options[evtEl.selectedIndex].textContent.trim() : '';
-
-    // Ticket / sponsorship level: prefer an explicit level, else the dropdown
-    var lvl = level || '';
-    var lvlLabel = '';
-    if (selEl) {
-      if (!lvl) lvl = selEl.value;
-      var opt = selEl.options[selEl.selectedIndex];
-      if (opt) lvlLabel = opt.textContent.trim();
-    }
-
-    var p = {};
-    if (first) { p.firstname = first; p.first_name = first; p.fname = first; }
-    if (last)  { p.lastname = last;  p.last_name = last;  p.lname = last; }
-    if (full)  { p.name = full; p.fullname = full; }
-    if (email) { p.email = email; p.emailaddress = email; }
-    if (phone) { p.phone = phone; p.phonenumber = phone; p.mobile = phone; }
-    if (lvl)      { p.level = lvl; p.ticket = lvl; }
-    if (lvlLabel) { p.ticketname = lvlLabel; }
-    if (event)    { p.event = event; p.eventname = event; }
-    return p;
-  }
-
+  // BirdEase's registration page is a client-rendered app that only reads its
+  // own routing params (registrationId, anonHash, …) — it ignores any
+  // name/email/ticket query params we append, so no prefill is possible via
+  // the URL. Visitors enter their details on BirdEase itself.
   function beBuildSrc(level) {
-    var base = beResolveUrl();
-    if (!base) return '';
-    var prefill = collectPrefill(level);
-    var qs = Object.keys(prefill)
-      .map(function (k) { return encodeURIComponent(k) + '=' + encodeURIComponent(prefill[k]); })
-      .join('&');
-    if (qs) { base += (base.indexOf('?') > -1 ? '&' : '?') + qs; }
-    return base;
+    return beResolveUrl();
   }
 
   // Single entry point for every checkout / sign-up button
@@ -1834,15 +1801,41 @@
     return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
+  // Quantity only applies to Individual Tickets ($75); sponsorships are one per order.
+  var ticketQty = 1;
+
+  function changeQty(delta) {
+    setQty(ticketQty + delta);
+    syncSidebar(75); // stepping quantity implies the Individual Ticket row
+  }
+
+  function setQty(n) {
+    ticketQty = Math.max(1, Math.min(99, parseInt(n, 10) || 1));
+    var count = document.getElementById('qty-count');
+    var input = document.getElementById('qp-qty');
+    if (count) count.textContent = ticketQty;
+    if (input && parseInt(input.value, 10) !== ticketQty) input.value = ticketQty;
+    var rowPrice = document.getElementById('row-price-75');
+    if (rowPrice) rowPrice.textContent = ticketQty > 1 ? '$' + (75 * ticketQty).toLocaleString('en-US') : '$75';
+    syncSidebar(selectedTicketPrice);
+  }
+
   // Single source of truth for the Quick Purchase summary.
   function syncSidebar(price) {
     price = parseFloat(price) || 0;
-    var fee = price * 0.03;
-    var total = price * 1.03;
-    document.getElementById('sidebar-ticket-label').textContent = TICKET_LABELS[price] || 'Ticket';
-    document.getElementById('sidebar-subtotal').textContent = money(price);
+    var isIndividual = price === 75;
+    var qty = isIndividual ? ticketQty : 1;
+    var subtotal = price * qty;
+    var fee = subtotal * 0.03;
+    var total = subtotal * 1.03;
+    var label = TICKET_LABELS[price] || 'Ticket';
+    if (isIndividual && qty > 1) label += ' × ' + qty;
+    document.getElementById('sidebar-ticket-label').textContent = label;
+    document.getElementById('sidebar-subtotal').textContent = money(subtotal);
     document.getElementById('fee-amount').textContent = money(fee);
     document.getElementById('total-amount').textContent = money(total);
+    // quantity only makes sense for Individual Tickets
+    document.getElementById('qp-qty-group').style.display = isIndividual ? '' : 'none';
     // keep the dropdown in step
     var sel = document.getElementById('sidebar-ticket-select');
     if (sel && parseFloat(sel.value) !== price) sel.value = String(price);
