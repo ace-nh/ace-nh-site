@@ -404,15 +404,6 @@
       text-transform: uppercase; letter-spacing: .4px; margin-bottom: 3px;
     }
     .qp-head p { font-size: 12.5px; color: rgba(255,255,255,.92); }
-    .qb-badge {
-      display: flex; align-items: center; gap: 10px;
-      background: rgba(22,174,201,.09); border: 1px solid rgba(22,174,201,.20);
-      border-radius: 6px;
-      padding: 9px 12px; margin-bottom: 12px;
-    }
-    .qb-badge span { font-size: 20px; color: var(--cyan); display: inline-flex; }
-    .qb-badge p { font-size: 12px; color: var(--gray); line-height: 1.4; }
-    .qb-badge strong { color: var(--navy); display: block; font-size: 13px; }
     .form-group { margin-bottom: 9px; }
     .form-group label {
       display: block; font-size: 11.5px; font-weight: 700;
@@ -803,17 +794,6 @@
       transition: .15s;
     }
     .modal-close:hover { background: var(--light); }
-    .modal-step { display: none; }
-    .modal-step.active { display: block; }
-    .modal-progress {
-      display: flex; gap: 6px; margin-bottom: 24px;
-    }
-    .modal-progress-dot {
-      height: 4px; flex: 1; border-radius: 2px;
-      background: var(--border); transition: .3s;
-    }
-    .modal-progress-dot.done { background: var(--cyan); }
-    .modal-progress-dot.active { background: var(--orange); }
     .modal-success {
       text-align: center; padding: 20px 0;
     }
@@ -1112,14 +1092,14 @@
             </div>
             <p>Join us for our annual Fundraising Breakfast — a morning of networking with NH's leading AEC professionals, student presentations, and impactful stories from the program. Learn how your support changes lives and opens careers.</p>
             <div class="ticket-options">
-              <div class="ticket-row selected" data-price="100" onclick="selectTicket(this, 'Individual Ticket', 100)">
+              <div class="ticket-row selected" data-price="75" onclick="selectTicket(this, 'Individual Ticket', 75)">
                 <div class="ticket-row-info">
                   <h5>Individual Ticket</h5>
                   <span>1 seat · General admission</span>
                 </div>
-                <div class="ticket-row-price">$100</div>
+                <div class="ticket-row-price">$75</div>
               </div>
-              <div class="ticket-row" data-price="500" onclick="selectTicket(this, 'Bronze Sponsor Seat', 500)">
+              <div class="ticket-row" data-price="500" onclick="selectTicket(this, 'Bronze Sponsor — 1 Ticket', 500)">
                 <div class="ticket-row-info">
                   <h5>Bronze Sponsor — 1 Ticket</h5>
                   <span>Includes event signage recognition</span>
@@ -1129,23 +1109,30 @@
               <div class="ticket-row" data-price="1000" onclick="selectTicket(this, 'Silver Sponsor — 2 Tickets', 1000)">
                 <div class="ticket-row-info">
                   <h5>Silver Sponsor — 2 Tickets</h5>
-                  <span>Social media shout-out + year-long web recognition</span>
+                  <span>Signage + Social media shout-out + Year-long web recognition</span>
                 </div>
                 <div class="ticket-row-price">$1,000</div>
               </div>
               <div class="ticket-row" data-price="2500" onclick="selectTicket(this, 'Gold Sponsor — 5 Tickets', 2500)">
                 <div class="ticket-row-info">
                   <h5>Gold Sponsor — 5 Tickets</h5>
-                  <span>Scholarship association + prominent recognition</span>
+                  <span>Logo tied to 1 scholarship winner (may be shared) + Signage &amp; shout-out at Breakfast + Social media shout-out + Year-long web recognition</span>
                 </div>
                 <div class="ticket-row-price">$2,500</div>
               </div>
               <div class="ticket-row" data-price="5000" onclick="selectTicket(this, 'Platinum Sponsor — Table of 10', 5000)">
                 <div class="ticket-row-info">
                   <h5>Platinum Sponsor — Table of 10</h5>
-                  <span>Maximum visibility · Named scholarship opportunity</span>
+                  <span>Logo tied to 1 scholarship winner + Signage &amp; shout-out at Breakfast + Social media shout-out + Year-long web recognition</span>
                 </div>
                 <div class="ticket-row-price">$5,000</div>
+              </div>
+              <div class="ticket-row" data-price="10000" onclick="selectTicket(this, 'Partnership Sponsor — 2 Tables of 10', 10000)">
+                <div class="ticket-row-info">
+                  <h5>Partnership Sponsor — 2 Tables of 10</h5>
+                  <span>Premier year-round recognition as Partnership Sponsor + Logo tied to multiple scholarships + Top billing at all major events + Student mentorship/site visit opportunities</span>
+                </div>
+                <div class="ticket-row-price">$10,000</div>
               </div>
             </div>
             <button class="btn-primary" onclick="startCheckout()" style="width:100%;justify-content:center;">
@@ -1171,7 +1158,7 @@
               <div class="event-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> <span><strong>Location TBD</strong> · Greater Manchester area</span></div>
             </div>
             <p><!-- TODO: Update with actual event details -->Watch NH high school teams present their year-long design projects to judges, government officials, sponsors, and families. Scholarships awarded at this event. Open to sponsors and invited guests.</p>
-            <button class="btn-outline" style="width:100%;justify-content:center;color:var(--navy);border-color:var(--border);font-family:'Oswald',sans-serif;font-weight:700;font-size:14px;padding:12px;border-radius:8px;cursor:pointer;transition:.2s;" onmouseover="this.style.background='var(--light)'" onmouseout="this.style.background='transparent'">
+            <button class="btn-outline" style="width:100%;justify-content:center;color:var(--navy);border-color:var(--border);font-family:'Oswald',sans-serif;font-weight:700;font-size:14px;padding:12px;border-radius:8px;cursor:pointer;transition:.2s;" onmouseover="this.style.background='var(--light)'" onmouseout="this.style.background='transparent'" onclick="openNotifyModal()">
               <svg class="isvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg> &nbsp;Notify Me When Tickets Available
             </button>
           </div>
@@ -1185,16 +1172,9 @@
           <p>Secure checkout powered by BirdEase</p>
         </div>
         <div class="qp-body">
-        <div class="qb-badge">
-          <span><svg class="isvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></span>
-          <p>
-            <strong>BirdEase Registration</strong>
-            Invoice auto-generated · Easy corporate reimbursement
-          </p>
-        </div>
         <div class="form-group">
           <label>Event</label>
-          <select>
+          <select id="sidebar-event-select">
             <option>Fundraising Breakfast — Sep 30, 2026</option>
             <option>Student Presentation Night — Mar 2027 (TBD)</option>
           </select>
@@ -1202,11 +1182,12 @@
         <div class="form-group">
           <label>Ticket / Sponsorship Level</label>
           <select id="sidebar-ticket-select" onchange="updateSidebarTotal(this.value)">
-            <option value="100">Individual Ticket — $100</option>
+            <option value="75">Individual Ticket — $75</option>
             <option value="500">Bronze Sponsor (1 ticket) — $500</option>
             <option value="1000">Silver Sponsor (2 tickets) — $1,000</option>
             <option value="2500">Gold Sponsor (5 tickets) — $2,500</option>
             <option value="5000">Platinum Sponsor (Table of 10) — $5,000</option>
+            <option value="10000">Partnership Sponsor (2 Tables of 10) — $10,000</option>
           </select>
         </div>
         <div class="form-group">
@@ -1224,9 +1205,9 @@
           </div>
         </div>
         <div class="order-summary">
-          <div class="order-line"><span id="sidebar-ticket-label">Individual Ticket</span><span id="sidebar-subtotal">$100.00</span></div>
-          <div class="order-line"><span>Processing fee (3%)</span><span id="fee-amount">$3.00</span></div>
-          <div class="order-line total"><span>Total</span><span id="total-amount">$103.00</span></div>
+          <div class="order-line"><span id="sidebar-ticket-label">Individual Ticket</span><span id="sidebar-subtotal">$75.00</span></div>
+          <div class="order-line"><span>Processing fee (3%)</span><span id="fee-amount">$2.25</span></div>
+          <div class="order-line total"><span>Total</span><span id="total-amount">$77.25</span></div>
         </div>
         <button class="pay-btn" onclick="startCheckout()">
           <svg class="isvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg> &nbsp;Continue to Secure Checkout
@@ -1274,7 +1255,7 @@
     </div>
     <div style="text-align:center;margin-top:24px;">
       <p style="color:var(--gray);font-size:14px;margin-bottom:14px;">Interested in joining the Board of Directors? We meet virtually the first Friday of each month at 9:30 AM.</p>
-      <a href="mailto:newhampshire@acementor.org" class="btn-primary" style="display:inline-flex;">
+      <a href="mailto:chair@acenewhampshire.org" class="btn-primary" style="display:inline-flex;">
         <svg class="isvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg> &nbsp;Email Us About Board Membership
       </a>
     </div>
@@ -1500,7 +1481,7 @@
           <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></div>
           <div>
             <h5>Email</h5>
-            <p><a href="mailto:newhampshire@acementor.org">newhampshire@acementor.org</a></p>
+            <p><a href="mailto:chair@acenewhampshire.org">chair@acenewhampshire.org</a></p>
           </div>
         </div>
         <div class="contact-detail">
@@ -1522,20 +1503,20 @@
         <div class="cf-row">
           <div class="cf-group">
             <label>First Name</label>
-            <input type="text" placeholder="Jane" />
+            <input type="text" id="cf-fname" placeholder="Jane" />
           </div>
           <div class="cf-group">
             <label>Last Name</label>
-            <input type="text" placeholder="Smith" />
+            <input type="text" id="cf-lname" placeholder="Smith" />
           </div>
         </div>
         <div class="cf-group">
           <label>Email</label>
-          <input type="email" placeholder="jane@company.com" />
+          <input type="email" id="cf-email" placeholder="jane@company.com" />
         </div>
         <div class="cf-group">
           <label>I'm interested in...</label>
-          <select>
+          <select id="cf-interest">
             <option>Sponsoring the program</option>
             <option>Volunteering as a mentor</option>
             <option>Student enrollment information</option>
@@ -1546,12 +1527,13 @@
         </div>
         <div class="cf-group">
           <label>Message</label>
-          <textarea placeholder="Tell us a bit about yourself and how you'd like to get involved..."></textarea>
+          <textarea id="cf-message" placeholder="Tell us a bit about yourself and how you'd like to get involved..."></textarea>
         </div>
-        <button class="btn-primary" style="width:100%;justify-content:center;">
+        <p id="cf-error" style="display:none;color:var(--orange-d);font-size:12.5px;margin-bottom:10px;">Please enter your email and a message before sending.</p>
+        <p id="cf-status" style="display:none;color:var(--cyan-d);font-size:13px;margin-bottom:10px;font-weight:600;"></p>
+        <button class="btn-primary" id="cf-submit-btn" style="width:100%;justify-content:center;" onclick="submitContactForm()">
           Send Message →
         </button>
-        <!-- TODO: Wire contact form to email provider (e.g., Formspree, WPForms, or direct SMTP) -->
       </div>
     </div>
   </div>
@@ -1598,7 +1580,7 @@
           <li><a href="#contact">Contact Us</a></li>
           <li><a href="https://www.instagram.com/ace_mentor_program_of_nh/" target="_blank">Instagram</a></li>
           <li><a href="https://www.facebook.com/acementornh.org" target="_blank">Facebook</a></li>
-          <li><a href="mailto:newhampshire@acementor.org">Email Us</a></li>
+          <li><a href="mailto:chair@acenewhampshire.org">Email Us</a></li>
           <li><a href="https://www.paypal.com/donate?campaign_id=GSJK3DP6EAGBW" target="_blank">Donate (PayPal)</a></li>
         </ul>
       </div>
@@ -1608,160 +1590,52 @@
       <p>
         <a href="https://acementor.org/privacy-policy/" target="_blank">Privacy Policy</a> &nbsp;·&nbsp;
         <a href="https://acementor.org/terms-conditions/" target="_blank">Terms</a> &nbsp;·&nbsp;
-        <a href="mailto:newhampshire@acementor.org">Contact</a>
+        <a href="mailto:chair@acenewhampshire.org">Contact</a>
       </p>
     </div>
   </div>
 </footer>
 
-<!-- ═══════════════ TICKET MODAL ═══════════════ -->
-<div class="modal-overlay" id="ticketModal" onclick="closeModalOnOverlay(event)">
+<!-- ═══════════════ NOTIFY ME MODAL ═══════════════ -->
+<div class="modal-overlay" id="notifyModal" onclick="closeNotifyModalOnOverlay(event)">
   <div class="modal">
     <div class="modal-header">
-      <h3 id="modalTitle">Purchase Tickets</h3>
-      <button class="modal-close" onclick="closeModal()">✕</button>
-    </div>
-    <div class="modal-progress">
-      <div class="modal-progress-dot active" id="dot1"></div>
-      <div class="modal-progress-dot" id="dot2"></div>
-      <div class="modal-progress-dot" id="dot3"></div>
+      <h3>Get Notified</h3>
+      <button class="modal-close" onclick="closeNotifyModal()">✕</button>
     </div>
 
-    <!-- Step 1: Selection -->
-    <div class="modal-step active" id="step1">
-      <p style="color:var(--gray);font-size:14px;margin-bottom:20px;">Select your ticket or sponsorship level for the <strong>Fundraising Breakfast — September 30, 2026</strong>.</p>
-      <div style="display:grid;gap:10px;margin-bottom:20px;">
-        <label style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--light);border-radius:10px;border:1.5px solid var(--border);cursor:pointer;transition:.15s;" class="modal-ticket-opt">
-          <input type="radio" name="modal-ticket" value="100" style="accent-color:var(--cyan);" />
-          <div style="flex:1;"><strong style="font-size:14px;color:var(--navy);font-family:'Oswald',sans-serif;">Individual Ticket</strong><br/><span style="font-size:12px;color:var(--gray);">1 seat · General admission</span></div>
-          <strong style="color:var(--orange);font-family:'Oswald',sans-serif;">$100</strong>
-        </label>
-        <label style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--light);border-radius:10px;border:1.5px solid var(--border);cursor:pointer;" class="modal-ticket-opt">
-          <input type="radio" name="modal-ticket" value="500" style="accent-color:var(--cyan);" />
-          <div style="flex:1;"><strong style="font-size:14px;color:var(--navy);font-family:'Oswald',sans-serif;">Bronze Sponsor</strong><br/><span style="font-size:12px;color:var(--gray);">1 ticket · Event signage recognition</span></div>
-          <strong style="color:var(--orange);font-family:'Oswald',sans-serif;">$500</strong>
-        </label>
-        <label style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--light);border-radius:10px;border:1.5px solid var(--border);cursor:pointer;" class="modal-ticket-opt">
-          <input type="radio" name="modal-ticket" value="1000" style="accent-color:var(--cyan);" />
-          <div style="flex:1;"><strong style="font-size:14px;color:var(--navy);font-family:'Oswald',sans-serif;">Silver Sponsor</strong><br/><span style="font-size:12px;color:var(--gray);">2 tickets · Social media shout-out + year-long recognition</span></div>
-          <strong style="color:var(--orange);font-family:'Oswald',sans-serif;">$1,000</strong>
-        </label>
-        <label style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--light);border-radius:10px;border:1.5px solid var(--border);cursor:pointer;" class="modal-ticket-opt">
-          <input type="radio" name="modal-ticket" value="2500" style="accent-color:var(--cyan);" />
-          <div style="flex:1;"><strong style="font-size:14px;color:var(--navy);font-family:'Oswald',sans-serif;">Gold Sponsor</strong><br/><span style="font-size:12px;color:var(--gray);">5 tickets · Scholarship association + prominent recognition</span></div>
-          <strong style="color:var(--orange);font-family:'Oswald',sans-serif;">$2,500</strong>
-        </label>
-        <label style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--light);border-radius:10px;border:1.5px solid var(--border);cursor:pointer;" class="modal-ticket-opt">
-          <input type="radio" name="modal-ticket" value="5000" style="accent-color:var(--cyan);" />
-          <div style="flex:1;"><strong style="font-size:14px;color:var(--navy);font-family:'Oswald',sans-serif;">Platinum Sponsor</strong><br/><span style="font-size:12px;color:var(--gray);">Table of 10 · Named scholarship + max visibility</span></div>
-          <strong style="color:var(--orange);font-family:'Oswald',sans-serif;">$5,000</strong>
-        </label>
-      </div>
-      <div class="step-btns">
-        <button class="btn-next" onclick="goStep(2)">Continue to Contact Info →</button>
-      </div>
-    </div>
-
-    <!-- Step 2: Contact Info -->
-    <div class="modal-step" id="step2">
-      <p style="color:var(--gray);font-size:14px;margin-bottom:20px;">Your information will be used to generate your BirdEase registration and event confirmation.</p>
+    <div id="notifyFormWrap">
+      <p style="color:var(--gray);font-size:14px;margin-bottom:20px;">Leave your email and/or phone number and we'll let you know as soon as tickets for <strong>Student Presentation Night 2027</strong> go on sale.</p>
       <div class="cf-row">
         <div class="cf-group">
-          <label>First Name *</label>
-          <input type="text" id="m-fname" placeholder="Jane" />
+          <label>First Name</label>
+          <input type="text" id="n-fname" placeholder="Jane" />
         </div>
         <div class="cf-group">
-          <label>Last Name *</label>
-          <input type="text" id="m-lname" placeholder="Smith" />
+          <label>Last Name</label>
+          <input type="text" id="n-lname" placeholder="Smith" />
         </div>
       </div>
       <div class="cf-group">
-        <label>Company / Firm Name</label>
-        <input type="text" id="m-company" placeholder="Smith Engineering LLC" />
-      </div>
-      <div class="cf-row">
-        <div class="cf-group">
-          <label>Email Address *</label>
-          <input type="email" id="m-email" placeholder="jane@company.com" />
-        </div>
-        <div class="cf-group">
-          <label>Phone</label>
-          <input type="tel" id="m-phone" placeholder="(603) 000-0000" />
-        </div>
+        <label>Email</label>
+        <input type="email" id="n-email" placeholder="jane@company.com" />
       </div>
       <div class="cf-group">
-        <label>Billing Address (for your invoice)</label>
-        <input type="text" placeholder="123 Main St, Manchester, NH 03101" />
+        <label>Phone</label>
+        <input type="tel" id="n-phone" placeholder="(603) 000-0000" />
       </div>
-      <div class="qb-badge" style="background:var(--light);border-radius:10px;padding:12px;margin-top:8px;display:flex;align-items:center;gap:10px;">
-        <span style="font-size:24px;"><svg class="isvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></span>
-        <div>
-          <strong style="font-size:13px;color:var(--navy);font-family:'Oswald',sans-serif;display:block;">Emailed Invoice</strong>
-          <span style="font-size:12px;color:var(--gray);">A tax-deductible invoice will be emailed automatically via BirdEase. Easy for corporate reimbursement.</span>
-        </div>
-      </div>
+      <p id="notify-error" style="display:none;color:var(--orange-d);font-size:12.5px;margin:-4px 0 12px;">Please enter an email or phone number so we can reach you.</p>
       <div class="step-btns">
-        <button class="btn-back" onclick="goStep(1)">← Back</button>
-        <button class="btn-next" onclick="goStep(3)">Continue to Payment →</button>
+        <button class="btn-back" onclick="closeNotifyModal()">Cancel</button>
+        <button class="btn-next" onclick="submitNotify()">Notify Me →</button>
       </div>
     </div>
 
-    <!-- Step 3: Payment -->
-    <div class="modal-step" id="step3">
-      <div class="qb-badge" style="background:var(--light);border-radius:10px;padding:12px;margin-bottom:20px;display:flex;align-items:center;gap:10px;">
-        <span style="font-size:24px;"><svg class="isvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
-        <div>
-          <strong style="font-size:13px;color:var(--navy);font-family:'Oswald',sans-serif;display:block;">Secure Payment via BirdEase</strong>
-          <span style="font-size:12px;color:var(--gray);">256-bit SSL encryption · PCI compliant · Invoice auto-generated for your records</span>
-        </div>
-      </div>
-      <div class="cf-group">
-        <label>Cardholder Name</label>
-        <input type="text" placeholder="Jane Smith" />
-      </div>
-      <div class="cf-group">
-        <label>Card Number</label>
-        <input type="text" placeholder="•••• •••• •••• ••••" maxlength="19" />
-      </div>
-      <div class="cf-row">
-        <div class="cf-group">
-          <label>Expiration</label>
-          <input type="text" placeholder="MM / YY" maxlength="7" />
-        </div>
-        <div class="cf-group">
-          <label>CVV</label>
-          <input type="text" placeholder="•••" maxlength="4" />
-        </div>
-      </div>
-      <div class="order-summary" style="background:var(--light);border-radius:10px;padding:16px;margin:16px 0;">
-        <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:10px;">ORDER SUMMARY</div>
-        <div class="order-line" style="color:var(--gray);"><span id="modal-ticket-label">Individual Ticket — 1 seat</span><span id="modal-subtotal">$100.00</span></div>
-        <div class="order-line" style="color:var(--gray);"><span>Processing fee (3%)</span><span id="modal-fee">$3.00</span></div>
-        <div class="order-line total" style="color:var(--navy);"><span>Total Charged</span><span id="modal-total">$103.00</span></div>
-        <p style="font-size:11px;color:var(--gray);margin-top:8px;">ACE Mentor Program of NH · 501(c)(3) · Tax-deductible to the extent allowable by law.</p>
-      </div>
-      <div class="step-btns">
-        <button class="btn-back" onclick="goStep(2)">← Back</button>
-        <button class="btn-next" style="background:var(--orange);" onclick="completePayment()">
-          <svg class="isvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg> &nbsp;Pay $<span id="btn-total">103.00</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Step 4: Success -->
-    <div class="modal-step" id="step4">
-      <div class="modal-success">
-        <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-        <h3>Payment Confirmed!</h3>
-        <p>Thank you for supporting ACE Mentor Program of New Hampshire.</p>
-        <div class="qb-confirm">
-          <strong>BirdEase Invoice Sent</strong><br/>
-          A tax-deductible invoice has been emailed to <span id="confirm-email">your email</span>.
-          Please allow 5 minutes. Check your spam folder if needed.
-        </div>
-        <p style="font-size:13px;color:var(--gray);">Questions? Email <a href="mailto:newhampshire@acementor.org" style="color:var(--navy);">newhampshire@acementor.org</a> or call (603) 933-3653.</p>
-        <button class="btn-next" style="margin-top:20px;width:100%;" onclick="closeModal()">Close</button>
-      </div>
+    <div class="modal-success" id="notifySuccess" style="display:none;">
+      <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+      <h3>You're on the list!</h3>
+      <p>We'll reach out at <span id="notify-confirm-contact">your contact info</span> as soon as Student Presentation Night tickets are available.</p>
+      <button class="btn-next" style="margin-top:20px;width:100%;" onclick="closeNotifyModal()">Close</button>
     </div>
   </div>
 </div>
@@ -1820,10 +1694,26 @@
   //  Leave birdeaseUrl blank to preview the integration with a paste-in link.
   // ─────────────────────────────────────────────────────────────
   var CHECKOUT = {
-    provider: 'birdease',
     mode: 'embed',
-    birdeaseUrl: ''
+    birdeaseUrl: 'https://birdease.com/36393'
   };
+
+  // ─────────────────────────────────────────────────────────────
+  //  FORM SUBMISSIONS (Contact form + Notify Me)
+  //  Both POST here — a Power Automate flow that emails chair@acenewhampshire.org.
+  // ─────────────────────────────────────────────────────────────
+  var FORMS_ENDPOINT = 'https://default173189e13969473f9fbdb73dcc2f50.f2.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/aaa547620d80410e8b599dc328dea9ab/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=5F3HGuGoaq3CTU8nk4Aa1JpnBc33YNHm90HDoWKP2DE';
+
+  function submitFormData(payload) {
+    return fetch(FORMS_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (!res.ok) throw new Error('Request failed: ' + res.status);
+      return true;
+    });
+  }
 
   function beStoredUrl() {
     try { return localStorage.getItem('ace_birdease_url') || ''; } catch (e) { return ''; }
@@ -1839,6 +1729,7 @@
     var emailEl = document.getElementById('qp-email');
     var phoneEl = document.getElementById('qp-phone');
     var selEl   = document.getElementById('sidebar-ticket-select');
+    var evtEl   = document.getElementById('sidebar-event-select');
 
     var full = nameEl ? nameEl.value.trim() : '';
     var parts = full.split(/\s+/).filter(Boolean);
@@ -1846,6 +1737,7 @@
     var last  = parts.length > 1 ? parts.slice(1).join(' ') : '';
     var email = emailEl ? emailEl.value.trim() : '';
     var phone = phoneEl ? phoneEl.value.trim() : '';
+    var event = evtEl ? evtEl.options[evtEl.selectedIndex].textContent.trim() : '';
 
     // Ticket / sponsorship level: prefer an explicit level, else the dropdown
     var lvl = level || '';
@@ -1864,6 +1756,7 @@
     if (phone) { p.phone = phone; p.phonenumber = phone; p.mobile = phone; }
     if (lvl)      { p.level = lvl; p.ticket = lvl; }
     if (lvlLabel) { p.ticketname = lvlLabel; }
+    if (event)    { p.event = event; p.eventname = event; }
     return p;
   }
 
@@ -1880,7 +1773,6 @@
 
   // Single entry point for every checkout / sign-up button
   function startCheckout(level) {
-    if (CHECKOUT.provider !== 'birdease') { openTicketModal(); return; }
     var url = beBuildSrc(level);
     if (CHECKOUT.mode === 'redirect' && url) { window.open(url, '_blank', 'noopener'); return; }
     openBirdease(level);
@@ -1915,30 +1807,7 @@
     openBirdease();
   }
 
-  var currentStep = 1;
-
-  // Quick Purchase: when hovering the box, scroll happens INSIDE it;
-  // once it hits an edge (or has nothing to scroll), the page scrolls normally.
-  (function () {
-    var body = document.querySelector('.qp-body');
-    if (!body) return;
-    body.addEventListener('wheel', function (e) {
-      var canScroll = body.scrollHeight > body.clientHeight + 1;
-      if (!canScroll) return; // nothing to scroll inside → let page handle it
-      var atTop = body.scrollTop <= 0;
-      var atBottom = body.scrollTop + body.clientHeight >= body.scrollHeight - 1;
-      var goingUp = e.deltaY < 0;
-      var goingDown = e.deltaY > 0;
-      // Only take over the wheel while there's room to move in that direction.
-      if ((goingDown && !atBottom) || (goingUp && !atTop)) {
-        body.scrollTop += e.deltaY;
-        e.preventDefault();
-      }
-      // at an edge → do nothing, page scrolls as normal
-    }, { passive: false });
-  })();
-
-  var selectedTicketPrice = 100;
+  var selectedTicketPrice = 75;
   var selectedTicketName = 'Individual Ticket';
 
   function toggleMenu(el) {
@@ -1953,11 +1822,12 @@
   });
 
   var TICKET_LABELS = {
-    100: 'Individual Ticket',
+    75: 'Individual Ticket',
     500: 'Bronze Sponsor — 1 ticket',
     1000: 'Silver Sponsor — 2 tickets',
     2500: 'Gold Sponsor — 5 tickets',
-    5000: 'Platinum Sponsor — Table of 10'
+    5000: 'Platinum Sponsor — Table of 10',
+    10000: 'Partnership Sponsor — 2 Tables of 10'
   };
 
   function money(n) {
@@ -1992,63 +1862,95 @@
     syncSidebar(val);
   }
 
-  function openTicketModal() {
-    goStep(1);
-    document.getElementById('ticketModal').classList.add('open');
+  // ── Notify Me modal (Student Presentation Night) ──
+  function openNotifyModal() {
+    document.getElementById('notifyFormWrap').style.display = 'block';
+    document.getElementById('notifySuccess').style.display = 'none';
+    document.getElementById('notify-error').style.display = 'none';
+    document.getElementById('notifyModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeModal() {
-    document.getElementById('ticketModal').classList.remove('open');
+  function closeNotifyModal() {
+    document.getElementById('notifyModal').classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  function closeModalOnOverlay(e) {
-    if (e.target === document.getElementById('ticketModal')) closeModal();
+  function closeNotifyModalOnOverlay(e) {
+    if (e.target === document.getElementById('notifyModal')) closeNotifyModal();
   }
 
-  function goStep(n) {
-    document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
-    document.getElementById('step' + n).classList.add('active');
-    ['dot1','dot2','dot3'].forEach(function(id, i) {
-      var d = document.getElementById(id);
-      d.classList.remove('active','done');
-      if (i + 1 < n) d.classList.add('done');
-      else if (i + 1 === n) d.classList.add('active');
+  function submitNotify() {
+    var fname = document.getElementById('n-fname').value.trim();
+    var lname = document.getElementById('n-lname').value.trim();
+    var email = document.getElementById('n-email').value.trim();
+    var phone = document.getElementById('n-phone').value.trim();
+    var errorEl = document.getElementById('notify-error');
+    if (!email && !phone) {
+      errorEl.textContent = 'Please enter an email or phone number so we can reach you.';
+      errorEl.style.display = 'block';
+      return;
+    }
+    errorEl.style.display = 'none';
+    var btn = document.querySelector('#notifyFormWrap .btn-next');
+    btn.disabled = true;
+    submitFormData({
+      formType: 'notify',
+      firstName: fname,
+      lastName: lname,
+      email: email,
+      phone: phone,
+      interest: '',
+      message: ''
+    }).then(function () {
+      document.getElementById('notify-confirm-contact').textContent = email || phone;
+      document.getElementById('notifyFormWrap').style.display = 'none';
+      document.getElementById('notifySuccess').style.display = 'block';
+    }).catch(function () {
+      errorEl.textContent = 'Something went wrong sending that — please email chair@acenewhampshire.org directly instead.';
+      errorEl.style.display = 'block';
+    }).finally(function () {
+      btn.disabled = false;
     });
-    if (n === 3) updateModalSummary();
-    currentStep = n;
-    var titles = ['', 'Select Tickets', 'Contact Information', 'Secure Payment', 'Confirmation'];
-    document.getElementById('modalTitle').textContent = titles[n] || 'Purchase Tickets';
   }
 
-  function updateModalSummary() {
-    var selected = document.querySelector('input[name="modal-ticket"]:checked');
-    var price = selected ? parseFloat(selected.value) : selectedTicketPrice;
-    var fee = (price * 0.03).toFixed(2);
-    var total = (price * 1.03).toFixed(2);
-    var labels = {
-      100: 'Individual Ticket — 1 seat',
-      500: 'Bronze Sponsor — 1 ticket',
-      1000: 'Silver Sponsor — 2 tickets',
-      2500: 'Gold Sponsor — 5 tickets',
-      5000: 'Platinum Sponsor — Table of 10'
-    };
-    document.getElementById('modal-ticket-label').textContent = labels[price] || 'Ticket';
-    document.getElementById('modal-subtotal').textContent = '$' + price.toFixed(2);
-    document.getElementById('modal-fee').textContent = '$' + fee;
-    document.getElementById('modal-total').textContent = '$' + total;
-    document.getElementById('btn-total').textContent = total;
-  }
-
-  function completePayment() {
-    var email = document.getElementById('m-email').value || 'your email';
-    document.getElementById('confirm-email').textContent = email;
-    // TODO: Replace this with your BirdEase event integration:
-    // set CHECKOUT.birdeaseUrl to your BirdEase event link so this
-    // form hands off to BirdEase for registration & payment.
-    goStep(4);
-    document.querySelector('.modal-progress').style.display = 'none';
+  function submitContactForm() {
+    var fname = document.getElementById('cf-fname').value.trim();
+    var lname = document.getElementById('cf-lname').value.trim();
+    var email = document.getElementById('cf-email').value.trim();
+    var interest = document.getElementById('cf-interest').value;
+    var message = document.getElementById('cf-message').value.trim();
+    var errorEl = document.getElementById('cf-error');
+    var statusEl = document.getElementById('cf-status');
+    statusEl.style.display = 'none';
+    if (!email || !message) {
+      errorEl.style.display = 'block';
+      return;
+    }
+    errorEl.style.display = 'none';
+    var btn = document.getElementById('cf-submit-btn');
+    btn.disabled = true;
+    submitFormData({
+      formType: 'contact',
+      firstName: fname,
+      lastName: lname,
+      email: email,
+      phone: '',
+      interest: interest,
+      message: message
+    }).then(function () {
+      statusEl.textContent = "Thanks — we'll be in touch soon!";
+      statusEl.style.display = 'block';
+      document.getElementById('cf-fname').value = '';
+      document.getElementById('cf-lname').value = '';
+      document.getElementById('cf-email').value = '';
+      document.getElementById('cf-message').value = '';
+    }).catch(function () {
+      errorEl.textContent = 'Something went wrong sending that — please email chair@acenewhampshire.org directly instead.';
+      errorEl.style.display = 'block';
+    }).finally(function () {
+      btn.disabled = false;
+    });
   }
 
   // Smooth scroll for nav links
