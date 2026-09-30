@@ -8,13 +8,27 @@
     Permanent target of the printed ACE events QR code.
     To point the QR code at a different event, change CURRENT_EVENT below
     (and the matching meta refresh + fallback link).
+
+    Scan counter: each visit adds 1 to a free Abacus counter (no account).
+    See the total at https://abacus.jasoncameron.dev/get/acenewhampshire-org/eventsqr
   -->
-  <meta http-equiv="refresh" content="0; url=/events/2026-fundraiser-breakfast/" />
+  <meta http-equiv="refresh" content="2; url=/events/2026-fundraiser-breakfast/" />
   <title>ACE Mentor Program of NH</title>
   <script>
     var CURRENT_EVENT = '/events/2026-fundraiser-breakfast/';
-    // Keep any ?src= tag from the QR link.
-    location.replace(CURRENT_EVENT + location.search);
+    var SCAN_COUNTER = 'https://abacus.jasoncameron.dev/hit/acenewhampshire-org/eventsqr';
+    var gone = false;
+    function go() {
+      if (gone) return;
+      gone = true;
+      // Keep any ?src= tag from the QR link.
+      location.replace(CURRENT_EVENT + location.search);
+    }
+    // Count the scan, then redirect. Never wait more than 800 ms.
+    try {
+      fetch(SCAN_COUNTER, { keepalive: true, cache: 'no-store' }).then(go, go);
+    } catch (e) { go(); }
+    setTimeout(go, 800);
   </script>
 </head>
 <body style="font-family: sans-serif; text-align: center; padding: 40px 16px;">
