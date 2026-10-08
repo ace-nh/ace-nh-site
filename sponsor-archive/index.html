@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sponsor Archive | ACE Mentor Program of New Hampshire</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Matched to ACE Mentor Program national brand: cyan primary, magenta + yellow accents, black headings */
+      --cyan:    #16AEC9;   /* ACE primary brand cyan — panels, buttons, stat numbers */
+      --cyan-d:  #1192AB;   /* cyan hover */
+      --cyan-l:  #2BBBD4;   /* lighter cyan for gradients */
+      --navy:    #1A1A1A;   /* repurposed: near-black ink for headings/text (var name kept) */
+      --blue-l:  #2BBBD4;   /* alias → cyan-l (kept for legacy gradient refs) */
+      --blue-d:  #0E8296;   /* alias → deep cyan */
+      --orange:  #C8198E;   /* ACE magenta — special CTAs/highlights (var name kept) */
+      --orange-d:#A41473;   /* magenta hover */
+      --magenta: #C8198E;
+      --yellow:  #F5B731;   /* ACE gold/yellow — secondary buttons, bullets, hover */
+      --yellow-d:#E0A11E;
+      --light:   #ECECEC;   /* neutral light-gray section bg */
+      --gray:    #595959;   /* body/secondary text */
+      --dark:    #1A1A1A;   /* base text ink */
+      --white:   #FFFFFF;
+      --border:  #DCDCDC;   /* neutral hairline */
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Open Sans', sans-serif; color: var(--dark); background: var(--white); }
+
+    .isvg { width: 16px; height: 16px; vertical-align: -3px; flex-shrink: 0; }
+
+    /* ── UTILITY TOP BAR ── */
+    .utilbar { background: var(--cyan); }
+    .utilbar-inner {
+      max-width: 1200px; margin: 0 auto; padding: 7px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .utilbar-left { display: flex; gap: 22px; flex-wrap: wrap; }
+    .utilbar a {
+      color: #fff; text-decoration: none; font-family: 'Oswald', sans-serif;
+      font-size: 12px; font-weight: 500; letter-spacing: .5px;
+      text-transform: uppercase; opacity: .96; transition: opacity .15s;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .utilbar a:hover { opacity: 1; text-decoration: underline; }
+    @media (max-width: 640px){ .utilbar-left a:not(:first-child){ display: none; } }
+
+    /* ── NAV ── */
+    header {
+      position: -webkit-sticky; position: sticky; top: 0; z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid #E7EAF4;
+      box-shadow: 0 2px 14px rgba(20,24,58,.06);
+    }
+    nav {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 80px;
+    }
+    .logo-area {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .logo-area img.brand-banner { height: 50px; width: auto; display: block; }
+    .brand-affiliate {
+      font-family: 'Oswald', sans-serif; font-weight: 800;
+      font-size: 12px; line-height: 1.12; color: var(--navy);
+      padding-left: 12px; border-left: 2px solid var(--magenta);
+      text-transform: uppercase; letter-spacing: .4px;
+    }
+    .logo-text { line-height: 1.2; }
+    nav ul { list-style: none; display: flex; gap: 2px; align-items: center; flex-wrap: nowrap; }
+    nav a {
+      color: #2A3157; text-decoration: none;
+      font-size: 13.5px; font-weight: 700; padding: 8px 12px;
+      border-radius: 6px; transition: .2s;
+      font-family: 'Oswald', sans-serif;
+      white-space: nowrap;
+    }
+    nav a:hover { color: var(--magenta); background: rgba(230,0,126,.07); }
+    .nav-cta {
+      background: var(--orange) !important; color: var(--white) !important;
+      padding: 11px 22px !important; border-radius: 2px !important;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--orange-d) !important; color: var(--white) !important; }
+
+    .btn-primary {
+      background: var(--cyan); color: var(--white);
+      padding: 14px 30px; border-radius: 2px;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      font-family: 'Oswald', sans-serif; letter-spacing: .5px;
+      text-transform: uppercase;
+      transition: .2s; display: inline-flex; align-items: center; gap: 8px;
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--cyan-d); transform: translateY(-1px); }
+
+    /* ── SECTIONS ── */
+    section { padding: 21px 24px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      display: inline-block; background: var(--light);
+      color: var(--navy); font-size: 12px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 2px; margin-bottom: 14px;
+      font-family: 'Oswald', sans-serif;
+    }
+    .section-label.orange { background: rgba(200,25,142,.10); color: var(--orange-d); }
+    h2.section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(28px, 3.2vw, 44px);
+      font-weight: 700; color: var(--navy);
+      margin-bottom: 16px; line-height: 1.1;
+      text-transform: uppercase; letter-spacing: .3px;
+    }
+    h2.section-title em { color: var(--cyan); font-style: normal; }
+    .section-sub {
+      color: var(--gray); font-size: 17px; line-height: 1.7;
+      max-width: 620px; margin-bottom: 24px;
+    }
+
+    /* ── CURRENT SPONSORS ── */
+    .current-sponsors-bg { background: var(--light); }
+    .sponsor-logos {
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center;
+    }
+    .sponsor-logo-box {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px;
+      width: 188px; height: 96px; padding: 16px 20px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 10px rgba(20,24,58,.05);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .sponsor-logo-box:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(20,24,58,.12); }
+    .sponsor-logo-box img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+    .sponsor-tier-label {
+      width: 100%; text-align: center;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 800; font-size: 13px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--navy);
+      margin: 28px 0 12px; padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); padding: 21px 24px 22px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-logo-card {
+      display: inline-flex; background: var(--white);
+      border-radius: 14px; padding: 16px 20px; margin-bottom: 6px;
+    }
+    .footer-logo-card img { height: 92px; width: auto; display: block; }
+    .footer-brand p {
+      font-size: 14px; color: rgba(255,255,255,.5); line-height: 1.7;
+      margin: 14px 0 20px;
+    }
+    .footer-col h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px; font-weight: 700; color: var(--white);
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a {
+      color: rgba(255,255,255,.5); font-size: 14px; text-decoration: none; transition: .15s;
+    }
+    .footer-col a:hover { color: var(--yellow); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 20px; display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 10px;
+    }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,.35); }
+    .footer-bottom a { color: rgba(255,255,255,.35); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--yellow); }
+    .national-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.06); border-radius: 8px;
+      padding: 7px 12px; color: rgba(255,255,255,.5) !important;
+      font-size: 12.5px; font-weight: 600; transition: .2s;
+    }
+    .national-link:hover { background: rgba(255,198,41,.16); color: var(--yellow) !important; }
+
+    /* ── ARCHIVE PAGE ── */
+    .current-sponsors-bg { background: var(--light); }
+    .archive-back { text-align: center; padding: 8px 0 4px; }
+    @media (max-width: 1024px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px)  { .footer-top { grid-template-columns: 1fr; } }
+    @media (max-width: 520px)  {
+      nav { padding: 0 14px; }
+      .brand-affiliate { display: none; }
+      .nav-cta { padding: 10px 14px !important; font-size: 12.5px !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ UTILITY BAR ═══════════════ -->
+<div class="utilbar">
+  <div class="utilbar-inner">
+    <div class="utilbar-left">
+      <a href="https://www.acementor.org" target="_blank">National Program</a>
+      <a href="https://www.paypal.com/donate?campaign_id=GSJK3DP6EAGBW" target="_blank">Donate</a>
+      <a href="../#contact">Contact Us</a>
+    </div>
+    <a href="https://app.acementor.org/login" target="_blank">Sign In / Register with a Program</a>
+  </div>
+</div>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<header>
+  <nav>
+    <a href="../" class="logo-area">
+      <img class="brand-banner" src="../images/ace-banner.png" alt="ACE Mentor Program — Architecture, Construction, Engineering" />
+      <span class="brand-affiliate">New<br/>Hampshire</span>
+    </a>
+    <ul>
+      <li><a href="../" class="nav-cta">&larr; Back to Home</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ═══════════════ PAGE TITLE ═══════════════ -->
+<section style="padding:21px 24px;">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:8px;">
+      <span class="section-label">Archive</span>
+      <h2 class="section-title" style="margin:10px auto 12px;">Sponsor Archive</h2>
+      <p class="section-sub" style="margin:0 auto;">A look back at the organizations that have supported ACE NH in past years. To see this year's sponsors, visit the <a href="../#current-sponsors" style="color:var(--cyan-d);font-weight:600;">home page</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 2025 - 2026 SPONSORS ═══════════════ -->
+<section class="current-sponsors-bg" id="sponsors-2025-2026" style="padding:21px 24px;">
+  <div class="section-inner">
+    <h3 style="font-family:'Oswald',sans-serif;font-weight:800;font-size:22px;color:var(--navy);text-align:center;margin-bottom:8px;">Thank You to Our 2025 - 2026 Sponsors</h3>
+    <p style="color:var(--gray);text-align:center;font-size:14px;margin-bottom:24px;">Your support made this program possible.</p>
+
+    <div class="sponsor-tier-label">Platinum — $5,000</div>
+    <div class="sponsor-logos">
+      <div class="sponsor-logo-box"><img src="../images/ddmi.png" alt="Design Day Mechanicals (DDMi)" /></div>
+      <div class="sponsor-logo-box"><img src="../images/scalora.png" alt="Scalora Consulting Group" /></div>
+      <div class="sponsor-logo-box"><img src="../images/consigli.png" alt="Consigli" /></div>
+      <div class="sponsor-logo-box"><img src="../images/select-demo.png" alt="Select Demo Services" /></div>
+    </div>
+
+    <div class="sponsor-tier-label">Gold — $2,500</div>
+    <div class="sponsor-logos">
+      <div class="sponsor-logo-box"><img src="../images/procon.png" alt="PROCON" /></div>
+    </div>
+
+    <div class="sponsor-tier-label">Silver — $1,000</div>
+    <div class="sponsor-logos">
+      <div class="sponsor-logo-box"><img src="../images/lavallee.png" alt="Lavallee Brensinger Architects" /></div>
+      <div class="sponsor-logo-box"><img src="../images/decco.png" alt="DECCO" /></div>
+      <div class="sponsor-logo-box"><img src="../images/bohler.png" alt="Bohler" /></div>
+      <div class="sponsor-logo-box"><img src="../images/rearch.png" alt="ReArch Construction" /></div>
+      <div class="sponsor-logo-box"><img src="../images/harvey.png" alt="Harvey Building Products" /></div>
+      <div class="sponsor-logo-box"><img src="../images/four-brothers.png" alt="Four Brothers Environmental" /></div>
+      <div class="sponsor-logo-box"><img src="../images/channel-building.png" alt="Channel Building Company, Inc." /></div>
+    </div>
+
+    <div class="sponsor-tier-label">Bronze — $500</div>
+    <div class="sponsor-logos">
+      <div class="sponsor-logo-box"><img src="../images/vhb.png" alt="VHB" /></div>
+      <div class="sponsor-logo-box"><img src="../images/stibler.png" alt="Stibler" /></div>
+      <div class="sponsor-logo-box"><img src="../images/st-marys-bank.svg" alt="St. Mary's Bank" /></div>
+      <div class="sponsor-logo-box"><img src="../images/needham-bank.png" alt="Needham Bank - BankProv" /></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:21px 24px;">
+  <div class="section-inner archive-back">
+    <a href="../" class="btn-primary">&larr; Back to ACE NH</a>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-card">
+          <img src="../images/ace-vertical.png" alt="ACE Mentor Program of New Hampshire" />
+        </div>
+        <p>
+          A not-for-profit 501(c)(3) after-school program introducing NH high school students
+          to careers in Architecture, Construction, and Engineering since 2018.
+        </p>
+        <a href="https://www.acementor.org/affiliates/concord-nh/" target="_blank" class="national-link">
+          <svg class="isvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> &nbsp;Part of ACE Mentor Program of America
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Program</h4>
+        <ul>
+          <li><a href="../#about">About ACE NH</a></li>
+          <li><a href="../#how-it-works">How It Works</a></li>
+          <li><a href="https://app.acementor.org/login" target="_blank">Student Registration</a></li>
+          <li><a href="https://app.acementor.org/login" target="_blank">Mentor Registration</a></li>
+          <li><a href="https://www.acementor.org" target="_blank">National Program</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Events</h4>
+        <ul>
+          <li><a href="../#events">Fundraising Breakfast 2026</a></li>
+          <li><a href="../#events">Student Presentation Night</a></li>
+          <li><a href="../#events">Buy Tickets</a></li>
+          <li><a href="../#sponsors">Sponsorship Tiers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="../#contact">Contact Us</a></li>
+          <li><a href="https://www.instagram.com/ace_mentor_program_of_nh/" target="_blank">Instagram</a></li>
+          <li><a href="https://www.facebook.com/acementornh.org" target="_blank">Facebook</a></li>
+          <li><a href="mailto:chair@acenewhampshire.org">Email Us</a></li>
+          <li><a href="https://www.paypal.com/donate?campaign_id=GSJK3DP6EAGBW" target="_blank">Donate (PayPal)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 ACE Mentor Program of New Hampshire · 501(c)(3) Nonprofit · All Rights Reserved</p>
+      <p>
+        <a href="https://acementor.org/privacy-policy/" target="_blank">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="https://acementor.org/terms-conditions/" target="_blank">Terms</a> &nbsp;·&nbsp;
+        <a href="mailto:chair@acenewhampshire.org">Contact</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
